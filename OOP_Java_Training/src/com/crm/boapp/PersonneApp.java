@@ -18,25 +18,24 @@ public class PersonneApp {
 	 */
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		System.out.println("Combien de personne etes vous ?");
+		System.out.println("How many persons are you ?");
 		Personne[] tabPersonne = new Personne[sc.nextInt()];
-		
-		
-		
+				
 		for (int i = 0; i < tabPersonne.length; i++) {
 			tabPersonne[i] = new Personne();
-			System.out.println("\n####################################################################");
-			System.out.println("Personne numero " + (i + 1) + ", veuillez entrez vos informations :");
-			System.out.println("Quel est votre nom ?");
-			tabPersonne[i].setNom(sc.next());
-			System.out.println("Quel est votre prenom ?");
-			tabPersonne[i].setPrenom(sc.next());
-			System.out.println("Quel est votre surnom ?");
-			tabPersonne[i].setSurnom(sc.next());
+			System.out.println("\n#####################################################");
+			System.out.println("Person number " + (i + 1) + ", please enter your private informations :");
+			System.out.println("What is your surname ?");
+			tabPersonne[i].setSurname(sc.next());
+			System.out.println("What is your firstname ?");
+			tabPersonne[i].setFirstname(sc.next());
+			System.out.println("What is your nickname ?");
+			tabPersonne[i].setNickname(sc.next());
+
 		}
 		System.out.println("\nToutes les informations sont saisies :");
-		for (int i = 0; i < tabPersonne.length; i++)
-			tabPersonne[i].printInfo();
+		for (Personne tab : tabPersonne)
+			tab.printInfo();
 		sc.close();
 	}
 }

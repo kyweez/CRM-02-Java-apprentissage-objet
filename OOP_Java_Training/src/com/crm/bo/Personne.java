@@ -3,7 +3,8 @@
  */
 package com.crm.bo;
 
-import java.util.Date;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * @author Aurel
@@ -11,86 +12,82 @@ import java.util.Date;
  */
 public class Personne {
 
-	// #################################Attributs#################################
-	private String surnom;
-	private String nom;
-	private String prenom;
-	protected Date dateNaissance;
-	private final int AGE_MAJORITE = 18;
+	// #################################Attributes#################################
+	private String nickname;
+	private String surname;
+	private String firstname;
+	private final String FR = "France";
+	private final String US = "USA";
+	private final int MAJORITY_AGE_FR = 18;
+	private final int MAJORITY_AGE_US = 21;
 
-	// #################################Methodes#################################
+	// #################################Methods#################################
 
 	/**
-	 * Methode qui modifie la valeur de l'attribut prenom.
-	 * 
-	 * @param n = nouveau nom
+	 * @return the nickname
 	 */
-	public void setPrenom(String n) {
-		prenom = n.substring(0, 1).toUpperCase() + n.substring(1).toLowerCase();
+	public String getNickname() {
+		return nickname;
 	}
 
 	/**
-	 * Methode qui modifie la valeur de l'attribut nom.
-	 * 
-	 * @param n = nouveau nom
+	 * @param nickname the nickname to set
 	 */
-	public void setNom(String n) {
-		nom = n.toUpperCase();
+	public void setNickname(String nickname) {
+		this.nickname = nickname;
 	}
 
 	/**
-	 * Methode qui modifie la valeur de l'attribut surnom.
-	 * 
-	 * @param n = nouveau nom
+	 * @return the surname
 	 */
-	public void setSurnom(String n) {
-		surnom = n.substring(0, 1).toUpperCase() + n.substring(1).toLowerCase();
+	public String getSurname() {
+		return surname;
 	}
 
 	/**
-	 * Cette methode renvoit l'attribut nom.
-	 * 
-	 * @return nom
+	 * @param surname the surname to set
 	 */
-	public String getNom() {
-		return (nom);
+	public void setSurname(String surname) {
+		this.surname = surname;
 	}
 
 	/**
-	 * Cette methode renvoit l'attribut prenom.
-	 * 
-	 * @return nom
+	 * @return the firstname
 	 */
-	public String getPrenom() {
-		return (prenom);
+	public String getFirstname() {
+		return firstname;
 	}
 
 	/**
-	 * Cette methode renvoit l'attribut surnom.
-	 * 
-	 * @return surnom
+	 * @param firstname the firstname to set
 	 */
-	public String getSurnom() {
-		return surnom;
+	public void setFirstname(String firstname) {
+		this.firstname = firstname;
 	}
 
-	/**
-	 * Cette methode affiche les informations de l'objet Personne.
-	 */
 	public void printInfo() {
-		System.out.println("\nNom       : " + getNom());
-		System.out.println("Prenom    : " + getPrenom());
-		System.out.println("Surnom    : " + surnom);
-		System.out.println("Initiales : " + getInitials());
-//		System.out.println("Date de naissance : " + dateNaissance);
+		System.out.println("\nName         : " + getSurname());
+		System.out.println("Firstname    : " + getFirstname());
+		System.out.println("Nickname     : " + getNickname());
+		System.out.println("Initials     : " + getInitials());
 	}
 
 	/**
-	 * Cette methode renvoit les initiales de la personne.
 	 * 
-	 * @return Initiales du nom et du prenom en majuscule.
+	 * The pattern follows the regex "\\b[a-zA-Z]" (
+	 * 
+	 * @return initials of the given surname and firstname
 	 */
-	protected String getInitials() {
-		return ((prenom.substring(0, 1) + nom.substring(0, 1)).toUpperCase());
+	public String getInitials() {
+		Pattern paternInitials;
+		Matcher matchSurname;
+		Matcher matchFirstname;
+		
+		paternInitials = Pattern.compile("\\b[a-zA-Z]");
+		matchSurname = paternInitials.matcher(surname);
+		matchFirstname = paternInitials.matcher(firstname);
+		if (matchFirstname.find() && matchSurname.find())
+			return(matchFirstname.group(0) + matchSurname.group(0).toUpperCase());
+		return (null);
 	}
 }
