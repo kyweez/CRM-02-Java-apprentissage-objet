@@ -19,6 +19,7 @@ public class ProgramMenu {
 	public static final String PROG_REG_POLY	= "POLYGON APPLICATION";
 	public static final String PROG_PERSON 		= "PERSON APPLICATION";
 	public static final String PROG_PERSON_TEST = "PERSON TEST APPLICATION";
+	public static final String PROG_ORTHONORMAL = "ORTHONORMAL APPLICATION";
 
 	// ################################ CONSTRUCTOR ################################
 
