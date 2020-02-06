@@ -5,13 +5,13 @@ package com.crm.boapp;
 
 import java.util.Scanner;
 
-import com.crm.bo.Personne;
+import com.crm.bo.Person;
 
 /**
  * @author Aurel
  *
  */
-public class PersonneApp {
+public class PersonApp {
 
 	/**
 	 * @param args
@@ -19,22 +19,22 @@ public class PersonneApp {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("How many persons are you ?");
-		Personne[] tabPersonne = new Personne[sc.nextInt()];
-				
-		for (int i = 0; i < tabPersonne.length; i++) {
-			tabPersonne[i] = new Personne();
+		Person[] tabPerson = new Person[sc.nextInt()];
+		
+		for (int i = 0; i < tabPerson.length; i++) {
+			tabPerson[i] = new Person();
 			System.out.println("\n#####################################################");
 			System.out.println("Person number " + (i + 1) + ", please enter your private informations :");
 			System.out.println("What is your surname ?");
-			tabPersonne[i].setSurname(sc.next());
+			tabPerson[i].setSurname(sc.next());
 			System.out.println("What is your firstname ?");
-			tabPersonne[i].setFirstname(sc.next());
+			tabPerson[i].setFirstname(sc.next());
 			System.out.println("What is your nickname ?");
-			tabPersonne[i].setNickname(sc.next());
+			tabPerson[i].setNickname(sc.next());
 
 		}
 		System.out.println("\nToutes les informations sont saisies :");
-		for (Personne tab : tabPersonne)
+		for (Person tab : tabPerson)
 			tab.printInfo();
 		sc.close();
 	}

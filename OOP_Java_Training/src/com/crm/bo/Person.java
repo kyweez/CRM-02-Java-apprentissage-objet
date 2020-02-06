@@ -10,18 +10,33 @@ import java.util.regex.Pattern;
  * @author Aurel
  *
  */
-public class Personne {
+public class Person {
 
-	// #################################Attributes#################################
-	private String nickname;
+	// ################################# ATTRIBUTS #################################
+
 	private String surname;
 	private String firstname;
-	private final String FR = "France";
-	private final String US = "USA";
-	private final int MAJORITY_AGE_FR = 18;
-	private final int MAJORITY_AGE_US = 21;
+	private String nickname;
+//	private final String FR = "France";
+//	private final String US = "USA";
+//	private final int MAJORITY_AGE_FR = 18;
+//	private final int MAJORITY_AGE_US = 21;
 
-	// #################################Methods#################################
+	// ################################ CONSTRUCTOR ################################
+
+	public Person() {
+		surname = "";
+		firstname = "";
+		nickname = "";
+	}
+	
+	public Person(String surname, String firstname, String nickname) {
+		this.surname = surname;
+		this.firstname = firstname;
+		this.nickname = nickname;
+	}
+
+	// ################################## METHODS ##################################
 
 	/**
 	 * @return the nickname
@@ -82,12 +97,12 @@ public class Personne {
 		Pattern paternInitials;
 		Matcher matchSurname;
 		Matcher matchFirstname;
-		
+
 		paternInitials = Pattern.compile("\\b[a-zA-Z]");
 		matchSurname = paternInitials.matcher(surname);
 		matchFirstname = paternInitials.matcher(firstname);
 		if (matchFirstname.find() && matchSurname.find())
-			return(matchFirstname.group(0) + matchSurname.group(0).toUpperCase());
+			return (matchFirstname.group(0) + matchSurname.group(0).toUpperCase());
 		return (null);
 	}
 }
