@@ -37,12 +37,20 @@ public class RectangleApp {
 		print.enterElementA(LEN);
 		rec1.setLength(sc.nextFloat());
 		rec1.printData(rec1);
+		System.out.println("Perimeter : ".concat(rec1.perimeter("cm")));
+		System.out.println("Perimeter : ".concat(rec1.perimeter("M")));
+		System.out.println("Area      : ".concat(rec1.area("Cm")));
+		System.out.println("Area      : ".concat(rec1.area("m")));
 		
 		print.enterElementA(WID);
 		rec2.setWidth(sc.nextFloat());
 		print.enterElementA(LEN);
 		rec2.setLength(sc.nextFloat());
 		rec2.printData(rec1);
+		System.out.println("Perimeter : ".concat(rec2.perimeter("cm")));
+		System.out.println("Perimeter : ".concat(rec2.perimeter("M")));
+		System.out.println("Area      : ".concat(rec2.area("Cm")));
+		System.out.println("Area      : ".concat(rec2.area("m")));
 		
 		rec1.compareTo(rec2);
 

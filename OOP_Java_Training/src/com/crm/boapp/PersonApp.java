@@ -33,9 +33,15 @@ public class PersonApp {
 			tabPerson[i].setNickname(sc.next());
 
 		}
-		System.out.println("\nToutes les informations sont saisies :");
+		System.out.println("\nEverything has been input :");
 		for (Person tab : tabPerson)
 			tab.printInfo();
+		System.out.println("\nNow in french :");
+		for (Person tab : tabPerson)
+			tab.printInfo("fr");
+		System.out.println("\nFinally in spanish:");
+		for (Person tab : tabPerson)
+			tab.printInfo("es");
 		sc.close();
 	}
 }

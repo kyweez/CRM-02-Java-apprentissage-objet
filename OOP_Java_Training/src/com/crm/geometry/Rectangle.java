@@ -59,21 +59,45 @@ public class Rectangle {
 		return ((width + length) * 2);
 	}
 
+	public String area(String unity) {
+		// TODO gerer les cas de depassement
+		StringBuffer str = new StringBuffer(unity);
+		if (unity.equalsIgnoreCase("cm") || unity.equalsIgnoreCase("m") ) {
+			str.insert(0, ' ');
+			str.append("^2");
+			return (String.valueOf((width * length)).concat(str.toString().toLowerCase()));
+		}
+		else
+			return (null);
+	}
+
+	public String perimeter(String unity) {
+		// TODO gerer les cas de depassement
+		// TODO gerer les cas de depassement
+		StringBuffer str = new StringBuffer(unity);
+		if (unity.equalsIgnoreCase("cm") || unity.equalsIgnoreCase("m") ) {
+			str.insert(0, ' ');
+			return (String.valueOf((width + length) * 2).concat(str.toString().toLowerCase()));
+		}
+		else
+			return (null);
+	}
+
 	public boolean isEqual(Rectangle rec) {
 		if (getLength() == rec.getLength() && getWidth() == rec.getWidth())
 			return (true);
 		else
 			return (false);
-		}
-	
+	}
+
 	public boolean areaIsBiggerThan(Rectangle rec) {
 		return (area() > rec.area() ? true : false);
 	}
-	
+
 	public boolean areaIsEqual(Rectangle rec) {
 		return (area() == rec.area() ? true : false);
 	}
-	
+
 	public void printData(Rectangle rec) {
 		PrintClassData.quadrilateral(rec);
 	}
@@ -90,6 +114,6 @@ public class Rectangle {
 				System.out.println("\nThe second rectangle is bigger than the first one");
 
 		}
-			
+
 	}
 }

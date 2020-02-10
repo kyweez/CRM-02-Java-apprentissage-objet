@@ -94,6 +94,12 @@ public class Person {
 			System.out.println("Surnom       : " + getNickname());
 			System.out.println("Initiales    : " + getInitials());
 		}
+		else if (str.equalsIgnoreCase("es")) {
+			System.out.println("\nAppelido          : " + getSurname());
+			System.out.println("Nombre            : " + getFirstname());
+			System.out.println("Apodo             : " + getNickname());
+			System.out.println("Iniciales         : " + getInitials());
+		}
 	}
 
 	/**
