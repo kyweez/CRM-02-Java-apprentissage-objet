@@ -29,7 +29,7 @@ public class Person {
 		firstname = "";
 		nickname = "";
 	}
-	
+
 	public Person(String surname, String firstname, String nickname) {
 		this.surname = surname;
 		this.firstname = firstname;
@@ -85,6 +85,15 @@ public class Person {
 		System.out.println("Firstname    : " + getFirstname());
 		System.out.println("Nickname     : " + getNickname());
 		System.out.println("Initials     : " + getInitials());
+	}
+
+	public void printInfo(String str) {
+		if (str.equalsIgnoreCase("fr")) {
+			System.out.println("\nNom          : " + getSurname());
+			System.out.println("Prenom       : " + getFirstname());
+			System.out.println("Surnom       : " + getNickname());
+			System.out.println("Initiales    : " + getInitials());
+		}
 	}
 
 	/**
