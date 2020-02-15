@@ -3,9 +3,6 @@
  */
 package com.crm.bo;
 
-import java.util.ArrayList;
-import java.util.Collection;
-
 /**
  * @author Aurel
  *
@@ -21,41 +18,36 @@ public class Car {
 	public static final String RED_COLOR = "Red";
 	public static final String GREY_COLOR = "Grey";
 	// ################################# ATTRIBUTS #################################
-	
-	private String	brand;
-	private	String	color;
-	private	byte	doorsNumber;
-	private	boolean	automatic = true;
-	private	float	price;
+
+	private String brand;
+	private String color;
+	private byte doorsNumber;
+	private boolean automatic = true;
+	private float price;
+
 	// ################################ CONSTRUCTOR ################################
+	
 	public Car() {
-		brand = (null);
-		color = (null);
-		doorsNumber = 0;
-		automatic = (false);
-		price = 0;
+		super();
+	}
+
+	public Car(String ownerType) {
+		super();
+		if (ownerType.equalsIgnoreCase(SOC)) {
+			brand = "PEUGEOT 206";
+			color = WHITE_COLOR;
+			doorsNumber = 3;
+			automatic = (false);
+			price = 12000;
+		} else if (ownerType.equalsIgnoreCase(FAM)) {
+			brand = "RENAULT ESPACE";
+			color = (null);
+			doorsNumber = 0;
+			automatic = (false);
+			price = 0;
+		}
 	}
 	
-	public Car(String ownerType) {
-		if(ownerType.equalsIgnoreCase(SOC)) {
-			brand = (null);
-			color = (null);
-			doorsNumber = 0;
-			automatic = (false);
-			price = 0;
-		}
-		else if (ownerType.equalsIgnoreCase(FAM)) {
-			brand = (null);
-			color = (null);
-			doorsNumber = 0;
-			automatic = (false);
-			price = 0;
-		}
-		else {
-			super();
-		}
-			
-	}
 	// ############################## GETTER & SETTER ##############################
 	// ################################## METHODS ##################################
 }
